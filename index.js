@@ -8,7 +8,8 @@ const images = [
     {id: 1, mame: "Web RoadMap"},
     {id: 2, mame: "BackEnd RoadMap"},
     {id: 3, mame: "Frontend RoadMap"},
-    {id: 4, mame: "Embedded RoadMap"}
+    {id: 4, mame: "Embedded RoadMap"},
+    {id: 5, mame: "OS RoadMap"}
 ];
 
 ////////////////////////////////////////////

@@ -3,13 +3,9 @@ const joi = require('joi');
 const app = express();
 app.use(express.json());
 
-const imageController = require('./controllers/image_controller');
+const {imageRouter} = require('./routes/image_route');
 
-app.get('/api/images', imageController.getAllImages);
-app.get('/api/images/:id', imageController.getImageByID);
-app.post('/api/images', imageController.addImage);
-app.put('/api/images/:id', imageController.editImageByID);
-app.delete('/api/images/:id', imageController.deleteImageByID);
+app.use('/api/images/', imageRouter);
 
 module.exports = {
     app,

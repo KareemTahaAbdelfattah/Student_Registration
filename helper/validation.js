@@ -16,7 +16,15 @@ function validateImage(image){
     return schema.validate(image);
 }
 
+function validateStudyGroup(studyGroup){
+    const schema = joi.object({
+        name: joi.string().min(3).required()
+    });
+    return schema.validate(image);
+}
+
 module.exports = {
     validateCourse,
     validateImage,
+    validateStudyGroup,
 };

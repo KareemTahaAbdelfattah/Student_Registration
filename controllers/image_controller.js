@@ -1,65 +1,55 @@
-const joi = require('joi');
-const { images } = require('../models/image');
-const { validateImage } = require('../helpers/validation');
+const { Image } = require('../models/image');
 
-const getAllImages =  (req,res) => {
-    res.send(images);
-};
-
-const getImageByID =  (req,res) => {
-    const image = images.find(c => c.id == parseInt(req.params.id));
-    if(!image){
-        res.status(404).send('The Image with the given ID not found !');
-    }else{
-        res.send(image);
+const getAllImages =  async (req,res) => {
+    try{
+        const allImages = await Image.find({});
+        res.status(200).send(allImages);
+    } catch (error){
+        res.status(400).send(error);
     }
 };
 
-const addImage = (req,res) => {
-
-    const result = validateImage(req.body);
-    if(result.error){
-        res.status(400).send(result.error.details[0].message);
-        console.log(result);
-        result;
+const getImageByID =  async (req,res) => {
+    try{
+        const image = await Image.findOne({_id: req.params.id});
+        res.status(200).send(image);
+    } catch (error){
+        res.status(400).send(error);
     }
-
-    const image = {
-        id: images.length + 1,
-        name: req.body.name
-    };
-
-    images.push(image);
-    res.send(image);
-
 };
 
-const editImageByID = (req,res) => {
-
-    const image = images.find(c => c.id == parseInt(req.params.id));
-    if(!image) res.status(404).send('The Image with the given ID not found !');
-
-    const result = validateImage(req.body);
-
-    if(result.error){
-        res.status(400).send(result.error.details[0].message);
-        console.log(result);
-        result;
+const addImage = async (req,res) => {
+    try{
+        const image = await Image.create(req.body);
+        res.status(200).send(image);
+    } catch (error){
+        res.status(400).send(error);
     }
-
-    image.name = req.body.name;
-    res.send(image);
-
 };
 
-const deleteImageByID = (req,res) => {
-    const image = images.find(c => c.id == parseInt(req.params.id));
-    if(!image) res.status(404).send('The Image with the given ID not found !');
+const editImageByID = async (req,res) => {
+    try{
+        const image = await Image.findOne({_id: req.params.id});
+        if(!image){
+            return res.status(404).send('Image not found');
+        }
+        if(req.body.name){
+            image.name = req.body.name;
+        }
+        await image.save();
+        res.status(200).send(image);
+    } catch (error){
+        res.status(400).send(error);
+    }
+};
 
-    const index = images.indexOf(image);
-    images.splice(index, 1);
-
-    res.send(image);
+const deleteImageByID = async (req,res) => {
+    try{
+        const image = await Image.deleteOne({_id: req.params.id});
+        res.status(200).send();
+    } catch (error){
+        res.status(400).send(error);
+    }
 };
 
 

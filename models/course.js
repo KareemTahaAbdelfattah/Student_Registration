@@ -11,7 +11,8 @@ const courseScheme = Schema({
         type: Number,
     },
     groupid: {
-        type: Number, // Changed to Number
+        type:Schema.Types.ObjectId ,
+        ref:'studyGroups',// Changed to Number
     },
     numberOfHours: {
         type: Number,

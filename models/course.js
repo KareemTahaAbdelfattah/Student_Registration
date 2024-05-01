@@ -1,8 +1,7 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const model = mongoose.model;
+const { required } = require('joi');
+const mongoose = require('mongoose');
 
-const courseScheme = Schema({
+const courseScheme = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -11,17 +10,18 @@ const courseScheme = Schema({
         type: Number,
     },
     groupid: {
-        type: Number, // Changed to Number
+        type: Schema.Types.ObjectId,
+        ref: 'studyGroups',// Changed to Number
     },
     numberOfHours: {
         type: Number,
     },
     term: {
         type: String,
-    }
+    },
 });
 
-const Course = model('Course', courseScheme);
+const Course = mongoose.model('Course', courseScheme);
 
 module.exports = {
     Course,

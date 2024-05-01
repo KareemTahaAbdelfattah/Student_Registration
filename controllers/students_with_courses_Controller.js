@@ -4,7 +4,7 @@ const { validateCourse } = require('../helper/validation');
 
 const getAllstudents_with_courses = async (req, res) => {
     try {
-        const allstudents_with_courses = await students_with_courses.find({});
+        const allstudents_with_courses = await students_with_courses.findOne({});
         res.status(200).send(allstudents_with_courses);
     } catch (error) {
         res.status(400).send(error);
@@ -13,7 +13,7 @@ const getAllstudents_with_courses = async (req, res) => {
 
 const getstudents_with_courses_ById = async (req, res) => {
     try {
-        //findById
+        
         const allstudents_with_courses = await students_with_courses.findOne({ _id: req.params.id });
         res.status(200).send(allstudents_with_courses);
     } catch (error) {
@@ -38,7 +38,7 @@ const editstudents_with_courses = async (req, res) => {
             return res.status(404).send("Course not found");
         }
 
-        // Update existing fields
+        
         if (req.body.name) {
             Students_with_courses.name = req.body.name;
         }

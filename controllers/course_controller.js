@@ -1,6 +1,5 @@
 const { Course } = require('../models/course');
-const Joi = require('joi');
-const { validateCourse } = require('../helper/validation');
+
 
 const getAllCourses = async (req, res) => {
     try {

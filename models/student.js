@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const model = mongoose.model;
 
-const studentScheme = Schema({
+const studentScheme = new Schema({
     firstName: {
         type: String,
         required: true,

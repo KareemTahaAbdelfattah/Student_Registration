@@ -11,7 +11,8 @@ const studentScheme = new Schema({
         type: String,
     },
     groupid: {
-        type: Number, // Changed to Number
+        type: mongoose.Schema.Types.ObjectID,
+        ref: 'study_group',
     },
     phoneNumber: {
         type: String,

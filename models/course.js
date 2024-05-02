@@ -6,6 +6,10 @@ const courseScheme = new mongoose.Schema({
         type: String,
         required: true,
     },
+    groupid:{
+     type:mongoose.Schema.Types.ObjectId,
+     ref: 'study_group',
+    },
     count: {
         type: Number,
     },

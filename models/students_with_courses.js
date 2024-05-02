@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 
-const students_with_courses_Scheme = new mongoose.Schema({
+const studentswithCoursesScheme = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -17,10 +17,10 @@ const students_with_courses_Scheme = new mongoose.Schema({
     },
     term: {
         type: String,
-    }
+    },
 });
 
-const students_with_courses = mongoose.model('students_with_courses', students_with_courses_Scheme);
+const students_with_courses = mongoose.model('students_with_courses', studentswithCoursesScheme);
 
 module.exports = {
     students_with_courses,

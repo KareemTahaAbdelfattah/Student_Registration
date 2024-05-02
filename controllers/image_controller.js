@@ -52,7 +52,6 @@ const deleteImageByID = async (req,res) => {
     }
 };
 
-
 module.exports = {
     getAllImages,
     getImageByID,

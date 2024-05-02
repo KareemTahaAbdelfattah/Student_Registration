@@ -1,4 +1,4 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const imageRouter = Router();
 
 const imageController = require('../controllers/image_controller');

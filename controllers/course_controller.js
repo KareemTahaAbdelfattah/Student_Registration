@@ -1,6 +1,5 @@
 const { Course } = require('../models/course');
 
-
 const getAllCourses = async (req, res) => {
     try {
         const allCourses = await Course.find({});

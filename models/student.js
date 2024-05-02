@@ -28,9 +28,9 @@ const studentScheme = new Schema({
     password: {
         type: String,
     },
-    profilePhoto: {
+    /*profilePhoto: {
         type: Image,
-    }
+    }*/
     
 });
 

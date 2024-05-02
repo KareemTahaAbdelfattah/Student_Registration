@@ -9,10 +9,10 @@ const courseScheme = new mongoose.Schema({
     count: {
         type: Number,
     },
-    /*groupid: {
-        type: Schema.Types.ObjectId,
-        ref: 'studyGroups',// Changed to Number
-    },*/
+    groupid: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'study_group',// Changed to Number
+    },
     numberOfHours: {
         type: Number,
     },

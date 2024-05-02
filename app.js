@@ -5,11 +5,11 @@ app.use(express.json());
 
 const { courseRouter } = require('./routes/course_router');
 const {imageRouter} = require('./routes/image_route');
-const {studyGroupRouter} = require('./routes/studyGroup_route');
+const { studentWithCoursesRouter } = require('./routes/students_with_courses_router');
 
 app.use('/api/courses/', courseRouter);
 app.use('/api/images/', imageRouter);
-app.use('/api/studyGroups/', studyGroupRouter);
+app.use('/api/studentsWithCourses/', studentWithCoursesRouter);
 
 
 module.exports = {

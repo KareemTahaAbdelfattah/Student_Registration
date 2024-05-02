@@ -1,17 +1,21 @@
+const { required } = require('joi');
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const model = mongoose.model;
-
-const courseScheme = Schema({
-    name: {
+const studyGroupSchema = new mongoose.Schema({
+    groupid: {
+        type: Number,
+        required: true,
+    },
+    cohortname: {
         type: String,
         required: true,
     },
-    number: {
+    cohortnumber: {
         type: Number,
+        required: true,
     },
 });
 
-const Course = model('Course', courseScheme);
-module.exports = { studyGroups, };
+const Study_group = mongoose.model('study_group', studyGroupSchema);
+
+module.exports = { Study_group, };
